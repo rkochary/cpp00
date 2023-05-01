@@ -10,6 +10,7 @@ std::string Contact::getFirstName() {return firstName;}
 int main()
 {
     Contact obj;
+    
     obj.setFirstName("gajh");
     std::cout << obj.getFirstName();
 }
