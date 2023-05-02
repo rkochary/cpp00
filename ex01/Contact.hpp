@@ -17,13 +17,13 @@ class Contact
         void setLastName(std::string lastName);
         void setNickName(std::string nickName);
         void setPhoneNumber(std::string PhoneNumber);
-        void setDatkestSecret(std::string darkestSecret);
+        void setDarkestSecret(std::string darkestSecret);
 
         std::string getFirstName();
         std::string getLastName();
         std::string getNickName();
         std::string getPhoneNumber();
-        std::string getDatkestSecret();
+        std::string getDarkestSecret();
 };
 
 #endif
