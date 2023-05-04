@@ -4,12 +4,14 @@
 
 #include "Contact.hpp"
 #include <iostream>
+#include <iomanip>
 
 
 class PhoneBook
 {
     Contact arr[8];
     int index;
+    int count;
     public:
         PhoneBook();
         ~PhoneBook();
@@ -20,6 +22,8 @@ class PhoneBook
         std::string getSecret(){return arr[0].getDarkestSecret();}
         void add(std::string contact[5]);
         void search();
+        void align(std::string str);
+        void findIndex(int i);
 };
 
 #endif
