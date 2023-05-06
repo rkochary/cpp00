@@ -23,7 +23,7 @@ class PhoneBook
         void add(std::string contact[5]);
         void search();
         void align(std::string str);
-        void findIndex(int i);
+        void findIndex(std::string i);
 };
 
 #endif

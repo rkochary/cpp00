@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+#include <typeinfo>
 
 PhoneBook::PhoneBook()
 {
@@ -39,6 +40,7 @@ void PhoneBook::align(std::string str)
 
 void PhoneBook::add(std::string contact[5])
 {
+    //bool isInteger = true;
     index++;
     if(index > 7)
         index = 0;
@@ -52,34 +54,38 @@ void PhoneBook::add(std::string contact[5])
     //     size++;
     // }
     //  for(index = 0;index < 5;index++)
-    //  {
-        arr[index].setFirstName(contact[0]);
-        arr[index].setLastName(contact[1]);
-        arr[index].setNickName(contact[2]);
-        arr[index].setPhoneNumber(contact[3]);
-        arr[index].setDarkestSecret(contact[4]);
+    //  {   
+
+            arr[index].setFirstName(contact[0]);
+            arr[index].setLastName(contact[1]);
+            arr[index].setNickName(contact[2]);
+            arr[index].setPhoneNumber(contact[3]);
+            arr[index].setDarkestSecret(contact[4]);
+            
   //   }
+
 }
 
-void PhoneBook::findIndex(int i)
+void PhoneBook::findIndex(std::string i)
 {
-    if(i >= count)
+    int num = atoi(i.c_str());
+    if(num >= count || !(i >= "0" && i <= "7"))
     {
         std::cout << "Index is not finded" << std::endl;
     }
     else
     {
-    align(arr[i].getFirstName());
-    align(arr[i].getLastName());
-    align(arr[i].getNickName());
-    std::cout << std::endl;
+        align(arr[num].getFirstName());
+        align(arr[num].getLastName());
+        align(arr[num].getNickName());
+        std::cout << std::endl;
     }
    // std::cout << arr[i].getNickName() << std::endl;
 }
 
 void PhoneBook::search()
 {
-     int a;
+    std::string a;
     //std::cout << index;
     for(int i = 0;i < count;i++)
     {
@@ -109,8 +115,10 @@ void PhoneBook::search()
     // std::cout << arr[index].getPhoneNumber();
     // std::cout << " | ";
     // std::cout << arr[index].getDarkestSecret();
-     std::cout << std::endl;
-     std::cout << "Enter index number ";
-     std::cin >> a;
+    std::cout << std::endl;
+    std::cout << "Enter index number ";
+    // std::cin >> a;
+    getline(std::cin, a);
+
      findIndex(a);
 }
