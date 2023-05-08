@@ -11,7 +11,6 @@ int main()
         if(input.empty())
             std::cout << "Print the command" << std::endl << ">: ";
         getline(std::cin, input);
-       //std::cin >> input;
         if (std::cin.eof())
 			return 1;
         if(input[0])
@@ -19,37 +18,46 @@ int main()
 
             if (input.compare("ADD") == 0)
             {
-               //std::cout << "first name " << "| ";
-                 std::cout << std::setw(10) << "FIRST name \t" << "|  ";
-                getline(std::cin, name[0]);
-                // std::cin >> name[0];
-               //std::cout << "last name " << "| ";
-                 std::cout << std::setw(10) << "last name \t" << "|  ";
-               getline(std::cin, name[1]);
-                // std::cin >> name[1];
-                 std::cout << std::setw(10) << "nick name \t" << "|  ";
-                //std::cout << "nick name " << "| ";
-               getline(std::cin, name[2]);
-                // std::cin >> name[2];
-                std::cout << std::setw(10) << "phone number \t" << "|  ";
-                // std::cout << "phone number " << "| ";
-               getline(std::cin, name[3]);
-               for (std::string::iterator it = name[3].begin(); it != name[3].end(); ++it) 
-               {
-                if(!isdigit(*it))
+                for(int i = 0;i < 5;i++)
                 {
-                     std::cout << "Error: Phone number must contain only integers." << std::endl;
-                    return 1;
+                    if(i == 0)
+                    {
+                        std::cout << std::setw(10) << "First Name \t" << "|  ";
+                        getline(std::cin, name[i]);
+                    }
+                    else if (i == 1)
+                    {
+                        std::cout << std::setw(10) << "Last Name \t" << "|  ";
+                        getline(std::cin, name[i]);
+                    }
+                    else if(i == 2)
+                    {
+                        std::cout << std::setw(10) << "Nickname \t" << "|  ";
+                        getline(std::cin, name[i]);
+                    }
+                    else if(i == 3)
+                    {
+                        std::cout << std::setw(10) << "Phone Number \t" << "|  ";
+                        getline(std::cin, name[i]);
+                        for (std::string::iterator it = name[i].begin(); it != name[i].end(); ++it) 
+                        {
+                            if(!isdigit(*it))
+                            {
+                                    std::cout << "Error: Phone number must contain only integers." << std::endl << std::endl;;
+                                    i = -1;
+                                    break;
+                            }
+                        }
+                    }
+                    else if (i == 4)
+                    {                        
+                        std::cout << std::setw(10) << "Darkest Secret \t" << "|  ";
+                        getline(std::cin, name[i]);
+                    }
+                    
                 }
-               }
-                // std::cin >> name[3];
-                std::cout << std::setw(10) << "darkest secret \t" << "|  ";
-                // std::cout << "darkest secret" << "| ";
-               getline(std::cin, name[4]);
-                // std::cin >> name[4];
-                std::cout << "Print the command" << std::endl << ">: ";
-            //std::cout << std::endl;
-                obj.add(name);
+                        std::cout << "Print the command" << std::endl << ">: ";
+                        obj.add(name);
             }
             else if(input.compare("SEARCH") == 0)
             {
@@ -63,20 +71,7 @@ int main()
             }
             else
                 std::cout << " Not valid command " << std::endl << ">: ";
-           // std::cout << " Print the commanddddddddd" << std::endl << ">: ";
         }
-    // std::cout << obj.getName();
-    // std::cout << std::endl;
-    // std::cout << obj.getLast();
-    // std::cout << std::endl;
-    // std::cout << obj.getNick();
-    // std::cout << std::endl;
-    // std::cout << obj.getPhone();
-    // std::cout << std::endl;
-    // std::cout << obj.getSecret();
-    // std::cout << std::endl;
     }
-
-    // obj.search();
-    
+    return 0;    
 }

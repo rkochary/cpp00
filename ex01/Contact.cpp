@@ -1,8 +1,7 @@
 #include "Contact.hpp"
 
 void Contact::setFirstName(std::string str)
-{
-    
+{ 
     firstName = str;
 }
 
@@ -16,12 +15,6 @@ void Contact::setNickName(std::string str)
     nickName = str;
 }
 
-// void Contact::setPhoneNumber(std::string str)
-// {
-//     phoneNumber = str;
-// }
-
-
 void Contact::setPhoneNumber(std::string str)
 {
     bool isInteger = true;
@@ -30,17 +23,13 @@ void Contact::setPhoneNumber(std::string str)
         if (!isdigit(*it)) 
         {
             isInteger = false;
+            std::cout << "Error: Phone number must contain only integers." << std::endl << "Print the command" << std::endl << ">: ";
             break;
         }
-    }
-    if (isInteger) 
-    {
-        phoneNumber = str;
-    }
-    else
-    {
-        std::cout << "Error: Phone number must contain only integers." << std::endl << "Print the command" << std::endl << ">: ";
-
+        else if (isInteger) 
+        {
+            phoneNumber = str;
+        }
     }
 }
 
